@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/docsample.dir/samples/docsample.cpp.o  -o docsample 

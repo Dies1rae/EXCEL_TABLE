@@ -1,0 +1,11 @@
+# Target labels
+ utfcpp
+# Source files and their labels
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/CMakeFiles/utfcpp-build
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/CMakeFiles/utfcpp-build.rule
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/utfcpp-prefix/src/utfcpp-stamp/utfcpp-build.rule
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/utfcpp-prefix/src/utfcpp-stamp/utfcpp-configure.rule
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/utfcpp-prefix/src/utfcpp-stamp/utfcpp-skip-update.rule
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/utfcpp-prefix/src/utfcpp-stamp/utfcpp-patch.rule
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/utfcpp-prefix/src/utfcpp-stamp/utfcpp-download.rule
+/home/dies/NetBeansProjects/excel_ya/YA_DIPLOMA_EXCEL/antlr4_runtime/runtime/utfcpp-prefix/src/utfcpp-stamp/utfcpp-mkdir.rule
