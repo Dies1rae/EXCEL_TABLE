@@ -33,7 +33,7 @@ FormulaInterface::Value Formula::Evaluate(const SheetInterface& sheet) const {
         CellInterface::Value value = sheet.GetCell(pos)->GetValue();
         if(std::holds_alternative<double>(value)) {
             return std::get<1>(value);
-        } else if(std::holds_alternative<std::string>(value)) {
+        } else if (std::holds_alternative<std::string>(value)) {
             std::string val_str = sheet.GetCell(pos)->GetText();
             if(val_str[0] == '\'') {
                 throw FormulaError(FormulaError::Category::Value);

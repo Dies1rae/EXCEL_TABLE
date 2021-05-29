@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/apitests.dir/test_checked_api.cpp.o CMakeFiles/apitests.dir/test_unchecked_api.cpp.o CMakeFiles/apitests.dir/test_checked_iterator.cpp.o CMakeFiles/apitests.dir/test_unchecked_iterator.cpp.o  -o apitests  ../extern/gtest/googlemock/gtest/libgtest_main.a ../extern/gtest/googlemock/gtest/libgtest.a -pthread 

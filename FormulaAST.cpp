@@ -13,21 +13,21 @@
 namespace ASTImpl {
 
 enum ExprPrecedence {
-EP_ADD,
-EP_SUB,
-EP_MUL,
-EP_DIV,
-EP_UNARY,
-EP_ATOM,
-EP_END,
+    EP_ADD,
+    EP_SUB,
+    EP_MUL,
+    EP_DIV,
+    EP_UNARY,
+    EP_ATOM,
+    EP_END,
 };
 
 // a bit is set when the parentheses are needed
 enum PrecedenceRule {
-PR_NONE = 0b00,                // never needed
-PR_LEFT = 0b01,                // needed for a left child
-PR_RIGHT = 0b10,               // needed for a right child
-PR_BOTH = PR_LEFT | PR_RIGHT,  // needed for both children
+    PR_NONE = 0b00,                // never needed
+    PR_LEFT = 0b01,                // needed for a left child
+    PR_RIGHT = 0b10,               // needed for a right child
+    PR_BOTH = PR_LEFT | PR_RIGHT,  // needed for both children
 };
 
 // PRECEDENCE_RULES[parent][child] determines if parentheses need
@@ -97,13 +97,12 @@ namespace {
 class BinaryOpExpr final : public Expr {
 public:
     enum Type : char {
-      Add = '+',
-      Subtract = '-',
-      Multiply = '*',
-      Divide = '/',
-};
+        Add = '+',
+        Subtract = '-',
+        Multiply = '*',
+        Divide = '/',
+    };
 
-public:
     explicit BinaryOpExpr(Type type, std::unique_ptr<Expr> lhs, std::unique_ptr<Expr> rhs) : type_(type), lhs_(std::move(lhs)), rhs_(std::move(rhs)) {}
 
     void Print(std::ostream& out) const override {
@@ -121,38 +120,38 @@ public:
     }
 
     ExprPrecedence GetPrecedence() const override {
-      switch (type_) {
-          case Add:
-              return EP_ADD;
-          case Subtract:
-              return EP_SUB;
-          case Multiply:
-              return EP_MUL;
-          case Divide:
-              return EP_DIV;
-          default:
+        switch (type_) {
+            case Add:
+                return EP_ADD;
+            case Subtract:
+                return EP_SUB;
+            case Multiply:
+                return EP_MUL;
+            case Divide:
+                return EP_DIV;
+            default:
               // have to do this because VC++ has a buggy warning
-              assert(false);
-              return static_cast<ExprPrecedence>(INT_MAX);
-      }
+                assert(false);
+                return static_cast<ExprPrecedence>(INT_MAX);
+        }
     }
 
     double Evaluate(const std::function<double(Position)>& cells) const override {
         switch (type_) {
-                case Add:
-                    return this->lhs_->Evaluate(cells) + this->rhs_->Evaluate(cells);
-                case Subtract:
-                    return this->lhs_->Evaluate(cells) - this->rhs_->Evaluate(cells);
-                case Multiply:
-                    return this->lhs_->Evaluate(cells) * this->rhs_->Evaluate(cells);
-                case Divide:
-                    if(this->rhs_->Evaluate(cells) == 0){
-                        throw FormulaError(FormulaError::Category::Div0);
-                    }
-                    return this->lhs_->Evaluate(cells) / this->rhs_->Evaluate(cells);
-                default:
-                    throw std::runtime_error("Evaluate operand error");
-            }
+            case Add:
+                return this->lhs_->Evaluate(cells) + this->rhs_->Evaluate(cells);
+            case Subtract:
+                return this->lhs_->Evaluate(cells) - this->rhs_->Evaluate(cells);
+            case Multiply:
+                return this->lhs_->Evaluate(cells) * this->rhs_->Evaluate(cells);
+            case Divide:
+                if(this->rhs_->Evaluate(cells) == 0){
+                    throw FormulaError(FormulaError::Category::Div0);
+                }
+                return this->lhs_->Evaluate(cells) / this->rhs_->Evaluate(cells);
+            default:
+                throw std::runtime_error("Evaluate operand error");
+        }
     }
 
 private:
@@ -188,13 +187,13 @@ ExprPrecedence GetPrecedence() const override {
 
 double Evaluate(const std::function<double(Position)>& cells) const override {
     switch (type_) {
-            case UnaryPlus:
-                return this->operand_->Evaluate(cells);
-            case UnaryMinus:
-                return -1 * this->operand_->Evaluate(cells);
-            default:
-                throw std::runtime_error("Evaluate operand error");
-        }
+        case UnaryPlus:
+            return this->operand_->Evaluate(cells);
+        case UnaryMinus:
+            return -1 * this->operand_->Evaluate(cells);
+        default:
+            throw std::runtime_error("Evaluate operand error");
+    }
 }
 
 private:
@@ -260,7 +259,6 @@ public:
         assert(args_.size() == 1);
         auto root = std::move(args_.front());
         args_.clear();
-
         return root;
     }
 
@@ -268,7 +266,6 @@ public:
         return std::move(cells_);
     }
 
-public:
     void exitUnaryOp(FormulaParser::UnaryOpContext* ctx) override {
         assert(args_.size() >= 1);
 

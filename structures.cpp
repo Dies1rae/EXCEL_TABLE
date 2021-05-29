@@ -117,9 +117,9 @@ bool FormulaError::operator==(FormulaError rhs) const {
 
 std::string_view FormulaError::ToString() const {
 	switch (category_) {
-	case FormulaError::Category::Ref: return "#REF!"; break;
-	case FormulaError::Category::Value: return "#VALUE!"; break;
-	case FormulaError::Category::Div0: return "#DIV0!"; break;
-	default: throw std::runtime_error("Something wrong");
+		case FormulaError::Category::Ref: return "#REF!"; break;
+		case FormulaError::Category::Value: return "#VALUE!"; break;
+		case FormulaError::Category::Div0: return "#DIV0!"; break;
+		default: throw std::runtime_error("Something wrong");
 	}
 }
